@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 
-import {taskCompleted} from '../actions'
+import {taskCompleted, removeItem} from '../actions'
 import {
     View,
     FlatList,
@@ -17,7 +17,12 @@ class ToDoList extends Component {
                 renderItem = {({item}) => <ToDoItem 
                                          key = {item.id}  
                                          text={item.text} 
-                                         onPress = {()=>this.props.dispatch(taskCompleted(item.id))}/>}
+                                         onPress = {()=>{
+                                             this.props.dispatch(taskCompleted(item.text));
+                                             this.props.dispatch(removeItem(item.id));
+                                            }}
+                                        />
+                            }
                 keyExtractor={item => item.id}
             />
         );
