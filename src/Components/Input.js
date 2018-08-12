@@ -28,9 +28,9 @@ class Input extends Component{
                 placeholder = 'Enter here'
                 onChangeText = {val=>this.onChangeText(val)}
                 onSubmitEditing = {e=>{
-                    console.log(this.state.text);
+                    console.log(store.getState())
                     dispatch(addTodo(this.state.text));
-                    console.log(store.getState());
+                   ;
                 }}
                 />
         );

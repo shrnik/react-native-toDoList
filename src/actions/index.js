@@ -1,15 +1,22 @@
-let nextTodoId = 0
+
+import uuid from 'uuid/v1'
+
 export const addTodo = text => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
+  id: uuid(),
   text
 }
 )
 
-export const taskCompleted= (id,text) => ({
+
+export const taskCompleted = (id) => ({
     type: 'TASK_COMPLETED',
-    id,
-    text
+    id
   })
 
 
+  export const addToCompleted= text => ({
+    type: 'ADD_TO_COMPLETED',
+    id:uuid(),
+    text
+  })

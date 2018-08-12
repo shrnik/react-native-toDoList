@@ -12,7 +12,7 @@ class CompletedList extends Component {
     render() {
         return (
             <FlatList
-                data = {this.props.todos.filter((item)=>(item.isCompleted===true))}
+                data = {this.props.completed}
                 renderItem = {({item}) => <CompletedItem 
                                          key = {item.id}  
                                          text={item.text} />}
@@ -22,7 +22,7 @@ class CompletedList extends Component {
     }
 }
 function mapStateToProps(state){
-    return{todos:state.todos}
+    return{completed:state.completed}
 }
 
 export default connect(mapStateToProps)(CompletedList);

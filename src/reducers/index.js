@@ -14,33 +14,32 @@ const todos = (state = [], action) => {
             ...state
             ]
         case 'TASK_COMPLETED':
-            console.log('Completed')
-            return state.map(todo =>
-                (todo.id === action.id)
-                ? {...todo, isCompleted:true}
-                : todo
-            )
+            console.log('removed')
+            let newState = state.filter(todo => todo.id !== action.id);
+            return newState
         default:
             return state
     }
 }
-// const completed = (state = [], action) => {
-//     switch (action.type) {
-//         case 'TASK_COMPLETED':
-//             console.log('Completed')
-//             return [
-//                 {
-//                     id: action.id,
-//                     text: action.text,
-//                 },
-//             ...state
-//             ]
-//         default:
-//             return state
-//     }
-//   }
+
+
+const completed = (state = [], action) => {
+    switch (action.type) {
+        case 'ADD_TO_COMPLETED':
+            console.log('Completed')
+            return [
+                {
+                    id: action.id,
+                    text: action.text,
+                },
+            ...state
+            ]
+        default:
+            return state
+    }
+  }
 
   
 
 export default combineReducers({
-    todos})
+    todos,completed})

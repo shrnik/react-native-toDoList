@@ -13,9 +13,9 @@ class Appn extends Component {
         return (
             <View>
             <Input/>
-            <Text>To Do List</Text>
+            <Text style = {{fontSize:25}}>To Do List</Text>
             <ToDoList/>
-            <Text>Done</Text>
+            <Text style = {{fontSize:25}}>Done</Text>
             <CompletedList/>
             </View>
         )
